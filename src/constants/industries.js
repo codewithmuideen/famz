@@ -1,0 +1,156 @@
+export const industries = [
+  {
+    slug: "technology-software",
+    icon: "Cpu",
+    image: "industry-technology",
+    title: "Technology & Software",
+    shortDescription: "Accounting built for fast-moving, high-growth tech businesses.",
+    challenges: [
+      "Managing cash flow through funding rounds and scaling costs",
+      "R&D tax relief eligibility and evidence",
+      "Revenue recognition for SaaS and subscription models",
+      "Share option schemes (EMI) and cap table complexity",
+    ],
+    solutions: [
+      "R&D tax relief identification and claim support",
+      "Cloud-based management accounting for real-time visibility",
+      "Financial modelling for investor and funding conversations",
+      "Company structuring and EMI scheme advice",
+    ],
+    relatedServices: ["business-advisory", "tax", "specialist-services"],
+  },
+  {
+    slug: "ecommerce",
+    icon: "ShoppingCart",
+    image: "industry-ecommerce",
+    title: "E-commerce",
+    shortDescription: "Inventory, VAT and multi-channel accounting for online sellers.",
+    challenges: [
+      "Multi-marketplace and multi-currency VAT complexity",
+      "Inventory valuation and cost of goods tracking",
+      "Thin margins requiring tight cash flow management",
+      "International sales tax obligations",
+    ],
+    solutions: [
+      "VAT advisory across UK and cross-border sales",
+      "Cloud accounting integrations with major marketplaces",
+      "Margin and cash flow forecasting",
+      "International & cross-border tax support",
+    ],
+    relatedServices: ["specialist-services", "accounting-compliance"],
+  },
+  {
+    slug: "financial-services",
+    icon: "Landmark",
+    image: "industry-financial",
+    title: "Financial Services",
+    shortDescription: "Compliance-aware accounting for regulated financial businesses.",
+    challenges: [
+      "Meeting regulatory and reporting obligations",
+      "Complex fee, commission and client-money accounting",
+      "Managing tax across varied income structures",
+    ],
+    solutions: [
+      "Statutory accounts and financial reporting support",
+      "Management information tailored to regulatory reporting",
+      "Personal and corporate tax planning for principals",
+    ],
+    relatedServices: ["finance-consultancy", "accounting-compliance"],
+  },
+  {
+    slug: "property-real-estate",
+    icon: "Building2",
+    image: "industry-property",
+    title: "Property & Real Estate",
+    shortDescription: "Tax-efficient structuring for landlords, developers and investors.",
+    challenges: [
+      "Rental income and property portfolio tax treatment",
+      "Capital gains tax on disposals",
+      "Choosing the right ownership structure (personal vs. company)",
+      "Making Tax Digital obligations for landlords",
+    ],
+    solutions: [
+      "Property & rental income tax planning",
+      "Capital gains tax advisory",
+      "Structuring advice for portfolio landlords",
+      "MTD-ready cloud bookkeeping",
+    ],
+    relatedServices: ["individuals", "specialist-services", "tax"],
+  },
+  {
+    slug: "construction",
+    icon: "HardHat",
+    image: "industry-construction",
+    title: "Construction",
+    shortDescription: "CIS, project accounting and cash flow for contractors.",
+    challenges: [
+      "Construction Industry Scheme (CIS) compliance",
+      "Project-based cash flow and retentions",
+      "Subcontractor payment and verification",
+    ],
+    solutions: [
+      "CIS registration, verification and returns",
+      "Project and job-costing management accounts",
+      "Cash flow forecasting across project cycles",
+    ],
+    relatedServices: ["accounting-compliance", "business-advisory"],
+  },
+  {
+    slug: "healthcare",
+    icon: "Stethoscope",
+    image: "industry-healthcare",
+    title: "Healthcare",
+    shortDescription: "Accounting for practices, consultants and healthcare professionals.",
+    challenges: [
+      "Mixed income from NHS, private and locum work",
+      "Practice partnership and profit-sharing accounting",
+      "Pension and tax planning for high-income professionals",
+    ],
+    solutions: [
+      "Personal tax planning for healthcare professionals",
+      "Partnership and practice accounts",
+      "Tax-efficient income and pension planning",
+    ],
+    relatedServices: ["individuals", "tax"],
+  },
+  {
+    slug: "retail-hospitality",
+    icon: "Store",
+    image: "industry-retail",
+    title: "Retail & Hospitality",
+    shortDescription: "Payroll, VAT and margin management for retail and hospitality operators.",
+    challenges: [
+      "High-volume payroll, including tips and shift patterns",
+      "Tight margins and stock control",
+      "VAT complexity across food, drink and retail sales",
+    ],
+    solutions: [
+      "Payroll services built for shift-based teams",
+      "VAT returns and advisory",
+      "Management accounts focused on margin visibility",
+    ],
+    relatedServices: ["accounting-compliance", "finance-consultancy"],
+  },
+  {
+    slug: "professional-services-consultancy",
+    icon: "Users",
+    image: "industry-consultancy",
+    title: "Professional Services & Consultancy",
+    shortDescription: "Accounting for consultants, contractors, freelancers and start-ups.",
+    challenges: [
+      "IR35 and off-payroll working considerations",
+      "Irregular income and tax planning",
+      "Choosing between sole trader, limited company or partnership",
+    ],
+    solutions: [
+      "Contractor & freelancer accounting",
+      "Company formation and structuring advice",
+      "Business start-up advisory",
+    ],
+    relatedServices: ["individuals", "business-advisory"],
+  },
+];
+
+export const getIndustryBySlug = (slug) => industries.find((i) => i.slug === slug);
+
+export default industries;
