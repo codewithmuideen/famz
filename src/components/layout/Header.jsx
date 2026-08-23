@@ -127,9 +127,11 @@ export default function Header() {
             >
               <Search size={19} />
             </button>
-            <Button to="/contact" variant={isDark ? "light" : "primary"} className="ml-2 hidden lg:inline-flex">
-              Get in touch
-            </Button>
+            <div className="ml-2 hidden lg:block">
+              <Button to="/contact" variant={isDark ? "light" : "primary"}>
+                Get in touch
+              </Button>
+            </div>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}

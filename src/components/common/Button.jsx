@@ -38,7 +38,7 @@ const Button = forwardRef(
     ref
   ) => {
     const base =
-      "group inline-flex items-center gap-2 font-medium tracking-wide transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2";
+      "group inline-flex items-center gap-2 whitespace-nowrap font-medium tracking-wide transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2";
     const isText = variant === "text";
     const shape = isText ? "" : "rounded-full";
     const classes = `${base} ${shape} ${variantClasses[variant]} ${
