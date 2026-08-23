@@ -127,9 +127,10 @@ export default function Header() {
             >
               <Search size={19} />
             </button>
-            <div className="ml-2 hidden lg:block">
+            <div className="ml-1 sm:ml-2">
               <Button to="/contact" variant={isDark ? "light" : "primary"}>
-                Get in touch
+                <span className="sm:hidden">Contact</span>
+                <span className="hidden sm:inline">Get in touch</span>
               </Button>
             </div>
             <button
