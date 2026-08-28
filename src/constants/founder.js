@@ -3,7 +3,7 @@
 export const founder = {
   name: "Gabriel Omoruyi",
   title: "Founder & Director, Dieux Accounting & Advisory",
-  image: "team-man-2",
+  image: "maleb",
   intro: [
     "Gabriel Omoruyi is the Founder and Director of Dieux Accounting & Advisory, an ACCA-regulated accounting and advisory firm supporting private individuals, entrepreneurs, owner-managed businesses, SMEs and growing companies across the UK and internationally.",
     "Before founding Dieux Accounting & Advisory, Gabriel gained professional experience with leading organisations including Citigroup (Citi), Lloyds Banking Group, Bentley Motors and QBE Insurance.",
