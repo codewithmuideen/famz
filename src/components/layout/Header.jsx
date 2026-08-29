@@ -66,7 +66,7 @@ export default function Header() {
             <img
               src={isDark ? logoWhite : logoBlack}
               alt={siteConfig.name}
-              className="h-9 w-auto object-contain transition-opacity duration-300 sm:h-11 lg:h-14"
+              className="h-11 w-auto object-contain transition-opacity duration-300 sm:h-12 lg:h-16"
             />
           </Link>
 
@@ -132,17 +132,15 @@ export default function Header() {
             >
               <Search size={19} />
             </button>
-            <div className="ml-0.5 sm:ml-2">
-              <Button to="/contact" variant={isDark ? "light" : "primary"} icon={false}>
-                <span className="sm:hidden">Contact</span>
-                <span className="hidden sm:inline">Get in touch</span>
-              </Button>
-            </div>
+            <Button to="/contact" variant={isDark ? "light" : "primary"} icon={false}>
+              <span className="sm:hidden">Contact</span>
+              <span className="hidden sm:inline">Get in touch</span>
+            </Button>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className={`ml-0.5 flex h-9 w-9 shrink-0 flex-col items-start justify-center gap-[5px] rounded-full transition-colors lg:hidden ${
+              className={`flex h-9 w-9 shrink-0 flex-col items-end justify-center gap-[5px] rounded-full transition-colors lg:hidden ${
                 isDark ? "text-ink-inverse hover:bg-white/10" : "text-ink hover:bg-surface-mist"
               }`}
             >
