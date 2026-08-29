@@ -57,7 +57,7 @@ export default function Footer() {
       <div className="container-page grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.4fr_2.6fr] lg:gap-8">
         <div className="flex flex-col gap-6">
           <Link to="/" className="flex w-fit items-center" aria-label={siteConfig.name}>
-            <img src={logoWhite} alt={siteConfig.name} className="h-11 w-auto object-contain sm:h-14" />
+            <img src={logoWhite} alt={siteConfig.name} className="h-9 w-auto object-contain sm:h-11" />
           </Link>
           <p className="max-w-sm text-sm leading-relaxed text-ink-inverse-muted">
             {siteConfig.description}

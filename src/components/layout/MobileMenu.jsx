@@ -90,7 +90,7 @@ export default function MobileMenu({ open, onClose, onOpenLocation }) {
           aria-label="Mobile navigation"
         >
           <div className="flex items-center justify-between border-b border-line-dark px-6 py-5">
-            <img src={logoWhite} alt={siteConfig.name} className="h-9 w-auto object-contain" />
+            <img src={logoWhite} alt={siteConfig.name} className="h-7 w-auto object-contain" />
             <button
               type="button"
               onClick={onClose}
