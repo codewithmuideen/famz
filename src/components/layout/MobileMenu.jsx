@@ -6,6 +6,7 @@ import { primaryNav, servicesMenu, industriesMenu, aboutMenu } from "../../const
 import { siteConfig } from "../../constants/siteConfig";
 import Button from "../common/Button";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
+import logoWhite from "../../assets/logos/logowhite.png";
 
 const subMenus = {
   services: servicesMenu,
@@ -89,7 +90,7 @@ export default function MobileMenu({ open, onClose, onOpenLocation }) {
           aria-label="Mobile navigation"
         >
           <div className="flex items-center justify-between border-b border-line-dark px-6 py-5">
-            <span className="font-display text-lg text-ink-inverse">{siteConfig.shortName}</span>
+            <img src={logoWhite} alt={siteConfig.name} className="h-9 w-auto object-contain" />
             <button
               type="button"
               onClick={onClose}

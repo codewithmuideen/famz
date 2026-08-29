@@ -5,6 +5,8 @@ import { Menu, Search, MapPin } from "lucide-react";
 import { primaryNav } from "../../constants/navigation";
 import { siteConfig } from "../../constants/siteConfig";
 import { useScroll } from "../../hooks/useScroll";
+import logoWhite from "../../assets/logos/logowhite.png";
+import logoBlack from "../../assets/logos/logoblack.png";
 import Button from "../common/Button";
 import MegaMenu from "./MegaMenu";
 import MobileMenu from "./MobileMenu";
@@ -55,14 +57,17 @@ export default function Header() {
         }`}
       >
         <div className="container-page flex h-20 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2" onClick={() => setActiveMenu(null)}>
-            <span
-              className={`font-display text-2xl tracking-tight transition-colors ${
-                isDark ? "text-ink-inverse" : "text-ink"
-              }`}
-            >
-              {siteConfig.shortName}
-            </span>
+          <Link
+            to="/"
+            className="flex shrink-0 items-center"
+            onClick={() => setActiveMenu(null)}
+            aria-label={siteConfig.name}
+          >
+            <img
+              src={isDark ? logoWhite : logoBlack}
+              alt={siteConfig.name}
+              className="h-10 w-auto object-contain transition-opacity duration-300 sm:h-11 lg:h-14"
+            />
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">

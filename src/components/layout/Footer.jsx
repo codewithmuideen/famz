@@ -4,6 +4,7 @@ import { FaLinkedinIn, FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/
 import { footerNav } from "../../constants/navigation";
 import { siteConfig } from "../../constants/siteConfig";
 import accaBadge from "../../assets/images/acca-badge.jpg";
+import logoWhite from "../../assets/logos/logowhite.png";
 
 const socialLinks = [
   { icon: FaLinkedinIn, href: siteConfig.social.linkedin, label: "LinkedIn" },
@@ -55,8 +56,8 @@ export default function Footer() {
     <footer className="bg-surface-dark text-ink-inverse">
       <div className="container-page grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.4fr_2.6fr] lg:gap-8">
         <div className="flex flex-col gap-6">
-          <Link to="/" className="font-display text-2xl text-ink-inverse">
-            {siteConfig.name}
+          <Link to="/" className="flex w-fit items-center" aria-label={siteConfig.name}>
+            <img src={logoWhite} alt={siteConfig.name} className="h-11 w-auto object-contain sm:h-14" />
           </Link>
           <p className="max-w-sm text-sm leading-relaxed text-ink-inverse-muted">
             {siteConfig.description}
