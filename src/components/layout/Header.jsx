@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Menu, Search, MapPin } from "lucide-react";
+import { Search, MapPin } from "lucide-react";
 import { primaryNav } from "../../constants/navigation";
 import { siteConfig } from "../../constants/siteConfig";
 import { useScroll } from "../../hooks/useScroll";
@@ -66,7 +66,7 @@ export default function Header() {
             <img
               src={isDark ? logoWhite : logoBlack}
               alt={siteConfig.name}
-              className="h-10 w-auto object-contain transition-opacity duration-300 sm:h-11 lg:h-14"
+              className="h-9 w-auto object-contain transition-opacity duration-300 sm:h-11 lg:h-14"
             />
           </Link>
 
@@ -111,7 +111,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
             <button
               type="button"
               onClick={() => setLocationOpen(true)}
@@ -132,8 +132,8 @@ export default function Header() {
             >
               <Search size={19} />
             </button>
-            <div className="ml-1 sm:ml-2">
-              <Button to="/contact" variant={isDark ? "light" : "primary"}>
+            <div className="ml-0.5 sm:ml-2">
+              <Button to="/contact" variant={isDark ? "light" : "primary"} icon={false}>
                 <span className="sm:hidden">Contact</span>
                 <span className="hidden sm:inline">Get in touch</span>
               </Button>
@@ -142,11 +142,13 @@ export default function Header() {
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className={`ml-1 rounded-full p-2 transition-colors lg:hidden ${
+              className={`ml-0.5 flex h-9 w-9 shrink-0 flex-col items-start justify-center gap-[5px] rounded-full transition-colors lg:hidden ${
                 isDark ? "text-ink-inverse hover:bg-white/10" : "text-ink hover:bg-surface-mist"
               }`}
             >
-              <Menu size={22} />
+              <span className="h-[2px] w-5 rounded-full bg-current" aria-hidden="true" />
+              <span className="h-[2px] w-5 rounded-full bg-current" aria-hidden="true" />
+              <span className="h-[2px] w-[13px] rounded-full bg-current" aria-hidden="true" />
             </button>
           </div>
         </div>
