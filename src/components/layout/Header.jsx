@@ -66,7 +66,7 @@ export default function Header() {
             <img
               src={isDark ? logoWhite : logoBlack}
               alt={siteConfig.name}
-              className="h-9 w-auto object-contain transition-opacity duration-300 sm:h-10 lg:h-12"
+              className="h-10 w-auto object-contain transition-opacity duration-300 sm:h-11 lg:h-14"
             />
           </Link>
 

@@ -111,6 +111,35 @@ export default function About() {
         </div>
       </section>
 
+      <section className="bg-surface-white py-20 sm:py-28">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Our Brand"
+            title="An identity built to be trusted"
+            description="A distinctive, modern brand system that reflects the clarity and confidence we bring to every client relationship."
+            className="mb-14"
+          />
+          <div className="grid gap-6 sm:grid-cols-2">
+            <ScrollReveal>
+              <ImageReveal
+                src="brandb"
+                alt="Dieux Accounting & Advisory brand identity — logo, colour palette and tagline"
+                effect="clip-bottom"
+                className="aspect-[4/5] w-full sm:aspect-[3/4]"
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <ImageReveal
+                src="branda"
+                alt="Dieux Accounting & Advisory illuminated shopfront signage"
+                effect="clip-bottom"
+                className="aspect-[4/5] w-full sm:aspect-[3/4]"
+              />
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-surface-dark py-20 sm:py-28">
         <div className="absolute inset-0 opacity-15">
           <ImageReveal src="stats-skyline" alt="" effect="fade" className="h-full w-full" hoverZoom={false} />
