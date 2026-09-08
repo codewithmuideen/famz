@@ -111,34 +111,34 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-surface-white py-20 sm:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Our Brand"
-            title="An identity built to be trusted"
-            description="A distinctive, modern brand system that reflects the clarity and confidence we bring to every client relationship."
-            className="mb-14"
-          />
-          <div className="grid gap-6 sm:grid-cols-2">
-            <ScrollReveal>
-              <ImageReveal
-                src="brandb"
-                alt="Dieux Accounting & Advisory brand identity — logo, colour palette and tagline"
-                effect="clip-bottom"
-                className="aspect-[4/5] w-full sm:aspect-[3/4]"
-              />
-            </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <ImageReveal
-                src="branda"
-                alt="Dieux Accounting & Advisory illuminated shopfront signage"
-                effect="clip-bottom"
-                className="aspect-[4/5] w-full sm:aspect-[3/4]"
-              />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
+      <ContentSplitSection
+        eyebrow="Recognised & Regulated"
+        title="A name you can find, and trust"
+        paragraphs={[
+          "Dieux Accounting & Advisory is an ACCA-regulated firm — our name stands behind every return we file, every set of accounts we prepare, and every piece of advice we give.",
+        ]}
+        bullets={[
+          "ACCA-regulated accounting and advisory firm",
+          "Serving individuals, entrepreneurs and growing businesses",
+          "UK-wide, with international client experience",
+        ]}
+        image="branda"
+        reverse
+      />
+
+      <ContentSplitSection
+        eyebrow="Our Approach"
+        title="Numbers. Guidance. Growth."
+        paragraphs={[
+          "Our brand reflects how we work — three principles that guide every engagement, from a first tax return to a full outsourced finance function.",
+        ]}
+        bullets={[
+          "Numbers — accurate accounting, compliance and tax services",
+          "Guidance — proactive business advisory and finance & consultancy",
+          "Growth — specialist services for ambitious, scaling businesses",
+        ]}
+        image="brandb"
+      />
 
       <section className="relative overflow-hidden bg-surface-dark py-20 sm:py-28">
         <div className="absolute inset-0 opacity-15">
