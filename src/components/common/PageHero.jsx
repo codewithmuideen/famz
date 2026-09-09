@@ -25,6 +25,7 @@ export default function PageHero({
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/85 to-surface-dark/60" />
+          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/55 via-black/20 to-transparent sm:h-44" />
         </div>
       )}
       <div className="container-page relative flex flex-col gap-6">

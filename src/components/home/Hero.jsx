@@ -20,6 +20,7 @@ export default function Hero() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark via-brand-navy-dark/80 to-brand-navy-dark/40" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/55 via-black/20 to-transparent sm:h-44" />
       </div>
 
       <div className="container-page relative flex flex-col gap-8 pb-20 sm:pb-28">

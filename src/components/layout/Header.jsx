@@ -76,37 +76,24 @@ export default function Header() {
                 key={item.label}
                 onMouseEnter={() => item.megaMenu && setActiveMenu(item.megaMenu)}
               >
-                {item.megaMenu ? (
-                  <button
-                    type="button"
-                    aria-expanded={activeMenu === item.megaMenu}
-                    onClick={() =>
-                      setActiveMenu((v) => (v === item.megaMenu ? null : item.megaMenu))
-                    }
-                    className={`text-sm font-medium transition-colors ${
-                      isDark ? "text-ink-inverse hover:text-brand-gold-light" : "text-ink hover:text-brand-navy"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ) : (
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) =>
-                      `text-sm font-medium transition-colors ${
-                        isActive
-                          ? isDark
-                            ? "text-brand-gold-light"
-                            : "text-brand-navy"
-                          : isDark
-                          ? "text-ink-inverse hover:text-brand-gold-light"
-                          : "text-ink hover:text-brand-navy"
-                      }`
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
-                )}
+                <NavLink
+                  to={item.path}
+                  onClick={() => setActiveMenu(null)}
+                  aria-expanded={item.megaMenu ? activeMenu === item.megaMenu : undefined}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition-colors ${
+                      isActive
+                        ? isDark
+                          ? "text-brand-gold-light"
+                          : "text-brand-navy"
+                        : isDark
+                        ? "text-ink-inverse hover:text-brand-gold-light"
+                        : "text-ink hover:text-brand-navy"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
               </div>
             ))}
           </nav>
