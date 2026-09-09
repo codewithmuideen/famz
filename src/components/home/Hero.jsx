@@ -12,8 +12,8 @@ export default function Hero() {
     <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-surface-dark pt-32">
       <div className="absolute inset-0">
         <ImageReveal
-          src="hero-finance-district"
-          alt="City financial district skyline representing UK and international business"
+          src="about-office-glass"
+          alt="Modern glass office towers representing UK and international business"
           effect="fade"
           className="h-full w-full"
           hoverZoom={false}
