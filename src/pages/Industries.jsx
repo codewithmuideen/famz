@@ -16,7 +16,7 @@ export default function Industries() {
       <PageHero
         eyebrow="Industries"
         title="Advice shaped by how your sector actually works"
-        description="We work with individuals and businesses across a wide range of sectors — bringing sector-specific context to every engagement."
+        description="We work with individuals and businesses across a wide range of sectors, bringing sector-specific context to every engagement."
         image="industry-consultancy"
         breadcrumbItems={[{ label: "Industries" }]}
       />
@@ -34,7 +34,7 @@ export default function Industries() {
       <CTASection
         eyebrow="Don't see your sector?"
         title="We work across many more industries than listed here."
-        description="Get in touch and tell us about your business — we'll let you know how we can help."
+        description="Get in touch and tell us about your business, and we'll let you know how we can help."
       />
     </>
   );

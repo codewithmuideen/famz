@@ -36,7 +36,7 @@ export default function Locations() {
           <SectionHeading
             eyebrow="Client Regions"
             title="Who we support, wherever they are"
-            description="Both UK-based and international clients — particularly those with a UK connection."
+            description="Both UK-based and international clients, particularly those with a UK connection."
             className="mb-14"
           />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

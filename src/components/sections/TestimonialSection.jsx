@@ -27,7 +27,7 @@ export default function TestimonialSection() {
               </blockquote>
               <footer className="mt-6 text-sm text-ink-muted">
                 <span className="font-medium text-ink">{testimonial.author}</span>
-                {" — "}
+                {", "}
                 {testimonial.role}
               </footer>
             </div>

@@ -30,7 +30,7 @@ export const primaryNav = [
 export const servicesMenu = {
   heading: "Our Services",
   description:
-    "Practical, end-to-end accounting and advisory support — from everyday compliance to strategic financial guidance.",
+    "Practical, end-to-end accounting and advisory support, from everyday compliance to strategic financial guidance.",
   columns: [
     {
       title: "All Services",
@@ -107,7 +107,7 @@ export const industriesMenu = {
 export const aboutMenu = {
   heading: "Who We Are",
   description:
-    "A modern, ACCA-regulated accounting and advisory firm — get to know how we work and who we work with.",
+    "A modern, ACCA-regulated accounting and advisory firm. Get to know how we work and who we work with.",
   columns: [
     {
       title: "The Firm",

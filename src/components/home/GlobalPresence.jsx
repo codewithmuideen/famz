@@ -12,7 +12,7 @@ export default function GlobalPresence() {
           <SectionHeading
             eyebrow="UK & International"
             title="Based in the UK. Built for clients everywhere."
-            description="Our core focus is UK individuals and businesses — but our technology-driven, remote-first model means we support clients with cross-border needs just as well."
+            description="Our core focus is UK individuals and businesses, but our technology-driven, remote-first model means we support clients with cross-border needs just as well."
           />
           <ul className="flex flex-col gap-4">
             {regions.map((r) => (

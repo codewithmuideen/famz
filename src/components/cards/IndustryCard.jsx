@@ -20,11 +20,11 @@ export default function IndustryCard({ industry, index = 0 }) {
           className="absolute inset-0"
           hoverZoom
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark via-brand-navy-dark/40 to-transparent transition-opacity duration-300 group-hover:from-brand-navy-dark/95" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark via-brand-navy-dark/70 to-brand-navy-dark/10 transition-opacity duration-300 group-hover:from-brand-navy-dark/95" />
         <div className="relative flex flex-col gap-3 p-6 text-ink-inverse">
           <Icon size={22} strokeWidth={1.5} className="text-brand-gold-light" aria-hidden="true" />
           <h3 className="text-xl">{industry.title}</h3>
-          <p className="max-h-0 overflow-hidden text-sm leading-relaxed text-ink-inverse-muted opacity-0 transition-all duration-300 group-hover:max-h-24 group-hover:opacity-100">
+          <p className="text-sm leading-relaxed text-ink-inverse-muted">
             {industry.shortDescription}
           </p>
           <span className="inline-flex items-center gap-2 text-sm font-medium">

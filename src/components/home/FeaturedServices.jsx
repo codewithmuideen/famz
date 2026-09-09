@@ -13,7 +13,7 @@ export default function FeaturedServices() {
           <SectionHeading
             eyebrow="What We Do"
             title="Services shaped around you and your business"
-            description="From personal tax to strategic finance advisory — practical support at every stage."
+            description="From personal tax to strategic finance advisory, practical support at every stage."
           />
           <Button to="/services" variant="outline" className="shrink-0">
             All services

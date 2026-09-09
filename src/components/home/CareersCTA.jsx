@@ -24,7 +24,7 @@ export default function CareersCTA() {
             Build your career with a firm that invests in you
           </h2>
           <p className="text-balance text-lg leading-relaxed text-ink-inverse-muted">
-            We're a small, technology-driven team that gives people real client exposure early —
+            We're a small, technology-driven team that gives people real client exposure early,
             with structured support toward ACCA qualification.
           </p>
           <Button to="/careers" variant="secondary" size="lg" className="mt-2">

@@ -73,7 +73,7 @@ export default function About() {
         <div className="container-page flex flex-col items-center gap-8 text-center sm:flex-row sm:text-left">
           <img
             src={accaBadge}
-            alt="ACCA — The Association of Chartered Certified Accountants"
+            alt="ACCA: The Association of Chartered Certified Accountants"
             className="h-40 w-40 shrink-0 rounded-xl border border-line bg-surface-white p-3 shadow-card sm:h-48 sm:w-48"
           />
           <div className="flex flex-col gap-2">
@@ -82,7 +82,7 @@ export default function About() {
             </span>
             <h2 className="text-2xl text-ink sm:text-3xl">{siteConfig.regulator.name}</h2>
             <p className="max-w-xl text-base leading-relaxed text-ink-muted">
-              {siteConfig.name} is an {siteConfig.regulator.short} — registration details are
+              {siteConfig.name} is an {siteConfig.regulator.short}, registration details are
               available on request for verification purposes.
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function About() {
         eyebrow="Recognised & Regulated"
         title="A name you can find, and trust"
         paragraphs={[
-          "Dieux Accounting & Advisory is an ACCA-regulated firm — our name stands behind every return we file, every set of accounts we prepare, and every piece of advice we give.",
+          "Dieux Accounting & Advisory is an ACCA-regulated firm. Our name stands behind every return we file, every set of accounts we prepare, and every piece of advice we give.",
         ]}
         bullets={[
           "ACCA-regulated accounting and advisory firm",
@@ -130,12 +130,12 @@ export default function About() {
         eyebrow="Our Approach"
         title="Numbers. Guidance. Growth."
         paragraphs={[
-          "Our brand reflects how we work — three principles that guide every engagement, from a first tax return to a full outsourced finance function.",
+          "Our brand reflects how we work: three principles that guide every engagement, from a first tax return to a full outsourced finance function.",
         ]}
         bullets={[
-          "Numbers — accurate accounting, compliance and tax services",
-          "Guidance — proactive business advisory and finance & consultancy",
-          "Growth — specialist services for ambitious, scaling businesses",
+          "Numbers: accurate accounting, compliance and tax services",
+          "Guidance: proactive business advisory and finance & consultancy",
+          "Growth: specialist services for ambitious, scaling businesses",
         ]}
         image="brandb"
       />
@@ -156,7 +156,7 @@ export default function About() {
           <SectionHeading
             eyebrow="Our Team"
             title="The people behind your advice"
-            description="A small, senior team — so you always know exactly who you're working with."
+            description="A small, senior team, so you always know exactly who you're working with."
             className="mb-14"
           />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

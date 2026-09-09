@@ -19,7 +19,7 @@ export const insights = [
       "The Self Assessment deadline has a way of arriving faster than expected. Here's what to gather, check and file before the 31 January cut-off.",
     content: [
       "Every year, the same avoidable issues cause last-minute Self Assessment stress: missing UTRs, unreconciled income from multiple sources, and unclaimed allowable expenses.",
-      "Start by confirming your Unique Taxpayer Reference (UTR) is active and that you're registered for Self Assessment if this is your first filing year. Then gather income records from all sources — employment, self-employment, property, dividends and savings interest.",
+      "Start by confirming your Unique Taxpayer Reference (UTR) is active and that you're registered for Self Assessment if this is your first filing year. Then gather income records from all sources: employment, self-employment, property, dividends and savings interest.",
       "Review allowable expenses carefully. For self-employed individuals and contractors, this includes home office costs, professional subscriptions and business travel. Property owners should account for mortgage interest relief restrictions and allowable maintenance costs.",
       "Finally, don't leave payment planning to the last minute. If you expect a large liability, consider whether a Time to Pay arrangement or advance planning around payments on account makes sense for your cash flow.",
     ],
@@ -54,7 +54,7 @@ export const insights = [
     excerpt:
       "R&D tax relief remains one of the most under-claimed reliefs among technology and software businesses. Here's how to assess whether your work qualifies.",
     content: [
-      "Many founders assume R&D relief only applies to laboratory-style research. In practice, a significant share of software development work — resolving genuine technical uncertainty, building novel functionality, or solving integration challenges — can qualify.",
+      "Many founders assume R&D relief only applies to laboratory-style research. In practice, a significant share of software development work (resolving genuine technical uncertainty, building novel functionality, or solving integration challenges) can qualify.",
       "Eligibility rests on demonstrating technical uncertainty and a systematic process to resolve it, not simply that development work took place.",
       "Recent changes to the scheme have tightened evidence requirements, including mandatory additional information forms. Claims now require more contemporaneous documentation than in previous years.",
       "We work with technology clients to identify qualifying activity as it happens, rather than reconstructing a claim retrospectively at year-end.",
@@ -70,10 +70,10 @@ export const insights = [
     image: "insight-4",
     featured: false,
     excerpt:
-      "Cloud accounting isn't just about compliance readiness — done well, it changes how quickly you can make decisions about your business.",
+      "Cloud accounting isn't just about compliance readiness. Done well, it changes how quickly you can make decisions about your business.",
     content: [
       "The most immediate benefit of cloud accounting is timeliness: real-time bank feeds and automated reconciliation mean your numbers are current, not six weeks stale.",
-      "Beyond compliance, cloud platforms give business owners a live view of cash position, outstanding invoices and upcoming liabilities — the kind of visibility that supports faster, better decisions.",
+      "Beyond compliance, cloud platforms give business owners a live view of cash position, outstanding invoices and upcoming liabilities: the kind of visibility that supports faster, better decisions.",
       "The transition is usually smoother than owners expect, particularly with historic data migrated carefully and staff trained on the new workflow from day one.",
     ],
     relatedInsights: ["rd-tax-relief-eligibility", "business-forecasting-basics"],
@@ -90,7 +90,7 @@ export const insights = [
       "Profitable businesses fail from cash flow problems more often than from a lack of demand. A rolling forecast is the simplest safeguard.",
     content: [
       "Profit and cash are not the same thing, and the gap between them is where many otherwise healthy businesses run into trouble.",
-      "A rolling 13-week cash flow forecast, updated weekly against actuals, gives owners an early warning system for pinch points — long before they become a crisis.",
+      "A rolling 13-week cash flow forecast, updated weekly against actuals, gives owners an early warning system for pinch points, long before they become a crisis.",
       "We build forecasting into our management accounting service for growth-stage clients, pairing the numbers with practical commentary on what's driving the variance.",
     ],
     relatedInsights: ["rd-tax-relief-eligibility", "hmrc-enquiry-what-to-expect"],
@@ -107,7 +107,7 @@ export const insights = [
       "An HMRC enquiry letter can be unsettling, but the process is more procedural than most people expect. Here's how to respond calmly and correctly.",
     content: [
       "HMRC enquiries range from routine checks on a single return to more detailed compliance investigations. The scope of the letter usually indicates which type you're facing.",
-      "The most important early step is not to respond directly without review — gather the relevant records first and have your accountant assess exactly what's being asked.",
+      "The most important early step is not to respond directly without review. Gather the relevant records first and have your accountant assess exactly what's being asked.",
       "Response deadlines matter, but so does accuracy. A rushed, incomplete response can extend an enquiry far longer than a considered one.",
       "We handle correspondence directly with HMRC on behalf of clients facing an enquiry, keeping the process as low-stress and short as possible.",
     ],

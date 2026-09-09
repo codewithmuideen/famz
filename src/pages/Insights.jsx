@@ -35,7 +35,7 @@ export default function Insights() {
       <PageHero
         eyebrow="Insights"
         title="Practical thinking, not jargon"
-        description="Timely, readable articles on tax, compliance and business finance — written for people running businesses, not accountants."
+        description="Timely, readable articles on tax, compliance and business finance, written for people running businesses, not accountants."
         image="insight-2"
         breadcrumbItems={[{ label: "Insights" }]}
       />

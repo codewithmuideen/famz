@@ -16,7 +16,7 @@ export default function Services() {
       <PageHero
         eyebrow="What We Do"
         title="End-to-end accounting and advisory support"
-        description="From day-to-day compliance to strategic financial advisory — practical expertise for individuals, entrepreneurs, owner-managed businesses and growing companies."
+        description="From day-to-day compliance to strategic financial advisory, practical expertise for individuals, entrepreneurs, owner-managed businesses and growing companies."
         image="service-advisory"
         breadcrumbItems={[{ label: "Services" }]}
       />

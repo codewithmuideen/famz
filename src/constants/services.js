@@ -10,7 +10,7 @@ export const services = [
     shortDescription:
       "Personal tax and financial support for private individuals, contractors and high-income professionals.",
     fullDescription:
-      "We help private individuals stay on top of their personal tax affairs with clear, timely advice — whether you're filing a Self Assessment return, managing rental income, or planning around a significant life or financial event. Our approach is personal: every client receives advice tailored to their specific circumstances, not a one-size-fits-all checklist.",
+      "We help private individuals stay on top of their personal tax affairs with clear, timely advice, whether you're filing a Self Assessment return, managing rental income, or planning around a significant life or financial event. Our approach is personal: every client receives advice tailored to their specific circumstances, not a one-size-fits-all checklist.",
     featured: true,
     offerings: [
       "Self Assessment Tax Returns",
@@ -34,7 +34,7 @@ export const services = [
     image: "service-accounting",
     title: "Accounting & Compliance",
     shortDescription:
-      "Statutory accounts, bookkeeping, VAT and payroll — accurate, on time, every time.",
+      "Statutory accounts, bookkeeping, VAT and payroll: accurate, on time, every time.",
     fullDescription:
       "Reliable compliance is the foundation of good financial management. We keep your accounting records accurate and up to date using modern cloud accounting tools, so you always have a clear, current view of your financial position and never miss a filing deadline.",
     featured: true,
@@ -66,7 +66,7 @@ export const services = [
     shortDescription:
       "Corporation tax, personal tax, VAT and tax planning for individuals and businesses.",
     fullDescription:
-      "Tax legislation is complex and constantly changing. We provide clear, practical tax advice that keeps you compliant while making sure you aren't paying more than you need to — from routine compliance through to more involved tax planning and HMRC enquiries.",
+      "Tax legislation is complex and constantly changing. We provide clear, practical tax advice that keeps you compliant while making sure you aren't paying more than you need to, from routine compliance through to more involved tax planning and HMRC enquiries.",
     featured: true,
     offerings: [
       "Corporation Tax",
@@ -92,7 +92,7 @@ export const services = [
     shortDescription:
       "Business planning, forecasting and strategic financial advisory for growing businesses.",
     fullDescription:
-      "Beyond compliance, we work as a strategic partner to owner-managed businesses and SMEs — helping you plan, forecast and make informed decisions with confidence. From start-up structuring to acquisition support, we're focused on your commercial outcomes, not just your paperwork.",
+      "Beyond compliance, we work as a strategic partner to owner-managed businesses and SMEs, helping you plan, forecast and make informed decisions with confidence. From start-up structuring to acquisition support, we're focused on your commercial outcomes, not just your paperwork.",
     featured: true,
     offerings: [
       "Business Planning",
@@ -120,7 +120,7 @@ export const services = [
     shortDescription:
       "Outsourced finance function and fractional CFO-level advisory support.",
     fullDescription:
-      "Not every growing business needs a full-time finance department. Our fractional finance and consultancy services give you access to senior financial expertise — from finance director-level insight to systems and process improvement — at a cost that scales with your business.",
+      "Not every growing business needs a full-time finance department. Our fractional finance and consultancy services give you access to senior financial expertise, from finance director-level insight to systems and process improvement, at a cost that scales with your business.",
     featured: false,
     offerings: [
       "Fractional Finance Support",

@@ -13,7 +13,7 @@ export default function IndustriesSection() {
           <SectionHeading
             eyebrow="Sectors"
             title="Sector-aware advice, not generic guidance"
-            description="We work with individuals and businesses across a wide range of sectors — here are a few we know especially well."
+            description="We work with individuals and businesses across a wide range of sectors. Here are a few we know especially well."
           />
           <Button to="/industries" variant="outline" className="shrink-0">
             All industries

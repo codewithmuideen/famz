@@ -6,14 +6,14 @@ export const homeBase = {
   country: "United Kingdom",
   image: "location-london",
   description:
-    "Our team is based in the UK and works with clients directly wherever they are — in person where useful, and remotely via secure cloud tools as standard.",
+    "Our team is based in the UK and works with clients directly wherever they are, in person where useful, and remotely via secure cloud tools as standard.",
 };
 
 export const regions = [
   {
     region: "United Kingdom",
     image: "location-building-1",
-    summary: "Our core market — UK individuals, landlords, contractors and businesses of every size.",
+    summary: "Our core market: UK individuals, landlords, contractors and businesses of every size.",
     coverage: ["England", "Scotland", "Wales", "Northern Ireland"],
   },
   {

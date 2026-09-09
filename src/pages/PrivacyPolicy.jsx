@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
             <p className="leading-relaxed text-ink-muted">
               {siteConfig.name} ("we", "us", "our") is committed to protecting your privacy. This
               policy explains what information we collect, how we use it, and the choices you
-              have. This is placeholder content — replace with a policy reviewed by your data
+              have. This is placeholder content. Replace with a policy reviewed by your data
               protection advisor before launch.
             </p>
             <h2 className="mt-4 text-xl text-ink">Information we collect</h2>

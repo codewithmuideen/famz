@@ -161,7 +161,7 @@ export default function Contact() {
                 Regulation
               </span>
               <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                {siteConfig.regulator.name}. {siteConfig.name} is a regulated firm — registration
+                {siteConfig.regulator.name}. {siteConfig.name} is a regulated firm, registration
                 details available on request for verification purposes.
               </p>
             </div>
@@ -175,7 +175,7 @@ export default function Contact() {
                 className="flex flex-col items-start gap-4 border border-line bg-surface-cream p-10"
               >
                 <CheckCircle2 size={36} className="text-brand-gold" />
-                <h2 className="text-2xl text-ink">Thank you — your message is on its way</h2>
+                <h2 className="text-2xl text-ink">Thank you, your message is on its way</h2>
                 <p className="text-ink-muted">
                   A member of our team will get back to you at {values.email} shortly.
                 </p>

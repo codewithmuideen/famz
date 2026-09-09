@@ -69,7 +69,7 @@ export default function Footer() {
             </a>
           </div>
           <div className="flex w-fit items-center gap-3 rounded-lg bg-surface-white p-2 pr-4">
-            <img src={accaBadge} alt="ACCA — The Association of Chartered Certified Accountants" className="h-10 w-10 rounded" />
+            <img src={accaBadge} alt="ACCA: The Association of Chartered Certified Accountants" className="h-10 w-10 rounded" />
             <span className="text-xs font-medium leading-tight text-brand-navy">
               ACCA Regulated Firm
             </span>

@@ -12,7 +12,7 @@ export const benefits = [
   {
     icon: "TrendingUp",
     title: "Real client exposure",
-    description: "Work directly with clients early — not buried on back-office tasks for years.",
+    description: "Work directly with clients early, not buried on back-office tasks for years.",
   },
   {
     icon: "HeartHandshake",

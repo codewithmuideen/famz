@@ -14,7 +14,7 @@ export default function Terms() {
             <p className="text-sm text-ink-soft">Last updated: 17 August 2026</p>
             <p className="leading-relaxed text-ink-muted">
               These terms govern your use of the {siteConfig.name} website. This is placeholder
-              content — replace with terms reviewed by your legal advisor before launch.
+              content. Replace with terms reviewed by your legal advisor before launch.
             </p>
             <h2 className="mt-4 text-xl text-ink">Use of this site</h2>
             <p className="leading-relaxed text-ink-muted">

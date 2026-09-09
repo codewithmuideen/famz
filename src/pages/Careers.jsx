@@ -21,7 +21,7 @@ export default function Careers() {
       <PageHero
         eyebrow="Careers"
         title="Do the best work of your career here"
-        description="We're a small, technology-driven team that gives people real responsibility early — and invests properly in their professional development."
+        description="We're a small, technology-driven team that gives people real responsibility early, and invests properly in their professional development."
         image="careers-culture"
         breadcrumbItems={[{ label: "Careers" }]}
       />
@@ -30,7 +30,7 @@ export default function Careers() {
         eyebrow="Why Join Us"
         title="A firm where your contribution is visible"
         paragraphs={[
-          "We're intentionally small. That means client work isn't handed to you piecemeal after years of back-office tasks — you build real client relationships early, supported by senior colleagues who are genuinely invested in your growth.",
+          "We're intentionally small. That means client work isn't handed to you piecemeal after years of back-office tasks. You build real client relationships early, supported by senior colleagues who are genuinely invested in your growth.",
           "Our technology-driven approach means less time on repetitive manual work, and more time on the advisory work that actually develops your skills.",
         ]}
         image="careers-brainstorm"
@@ -99,7 +99,7 @@ export default function Careers() {
             </div>
           ) : (
             <p className="text-ink-muted">
-              We don't have any open roles right now — but we'd still love to hear from you.
+              We don't have any open roles right now, but we'd still love to hear from you.
             </p>
           )}
         </div>
