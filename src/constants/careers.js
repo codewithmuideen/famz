@@ -21,34 +21,8 @@ export const benefits = [
   },
 ];
 
-export const openRoles = [
-  {
-    slug: "client-accountant",
-    title: "Client Accountant",
-    department: "Accounting & Compliance",
-    location: "London / Hybrid",
-    type: "Full-time",
-    summary:
-      "Manage a portfolio of SME and owner-managed business clients, delivering statutory accounts, management accounts and day-to-day accounting support.",
-  },
-  {
-    slug: "tax-senior",
-    title: "Tax Senior",
-    department: "Tax Services",
-    location: "London / Hybrid",
-    type: "Full-time",
-    summary:
-      "Support personal and corporate tax compliance and planning work across a varied client base, including HMRC enquiry casework.",
-  },
-  {
-    slug: "acca-trainee",
-    title: "ACCA Trainee Accountant",
-    department: "Accounting & Compliance",
-    location: "London / Hybrid",
-    type: "Full-time, study support included",
-    summary:
-      "Start your ACCA training with hands-on client exposure from day one, supported by structured study leave and mentoring.",
-  },
-];
+// No roles are currently open. Add entries here when a role goes live;
+// the Careers page automatically falls back to a "no open roles" message when this is empty.
+export const openRoles = [];
 
 export default openRoles;
