@@ -28,7 +28,7 @@ export default function MegaMenu({ menuKey, onNavigate }) {
           <p className="mb-8 max-w-md text-sm leading-relaxed text-ink-muted">
             {menu.description}
           </p>
-          <div className="grid gap-10 sm:grid-cols-2">
+          <div className={`grid gap-10 ${menu.columns.length > 1 ? "sm:grid-cols-2" : ""}`}>
             {menu.columns.map((column) => (
               <div key={column.title}>
                 <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft">

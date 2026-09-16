@@ -110,15 +110,9 @@ export const aboutMenu = {
     "A modern, ACCA-regulated accounting and advisory firm. Get to know how we work and who we work with.",
   columns: [
     {
-      title: "The Firm",
-      items: [
-        { label: "About Us", to: "/about" },
-        { label: "Careers", to: "/careers" },
-      ],
-    },
-    {
       title: "Explore",
       items: [
+        { label: "Careers", to: "/careers" },
         { label: "Insights", to: "/insights" },
         { label: "Locations", to: "/locations" },
         { label: "Contact Us", to: "/contact" },
