@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
-import { FaLinkedinIn, FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
+import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { footerNav } from "../../constants/navigation";
 import { siteConfig } from "../../constants/siteConfig";
 import accaBadge from "../../assets/images/acca-badge.jpg";
@@ -9,8 +9,6 @@ import logoWhite from "../../assets/logos/logowhite.png";
 const socialLinks = [
   { icon: FaLinkedinIn, href: siteConfig.social.linkedin, label: "LinkedIn" },
   { icon: FaXTwitter, href: siteConfig.social.twitter, label: "Twitter / X" },
-  { icon: FaFacebookF, href: siteConfig.social.facebook, label: "Facebook" },
-  { icon: FaInstagram, href: siteConfig.social.instagram, label: "Instagram" },
 ];
 
 function FooterColumn({ title, links }) {

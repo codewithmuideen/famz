@@ -12,7 +12,7 @@ export const siteConfig = {
   // NOTE: only the email address was supplied by the client. Phone/address
   // are illustrative placeholders — replace with verified details before launch.
   contact: {
-    email: "info@dieuxltd.com",
+    email: "Info@dieux.co.uk",
     phoneDisplay: "Available on request",
     phoneHref: "",
     addressLine1: "London, United Kingdom",
@@ -23,8 +23,6 @@ export const siteConfig = {
   social: {
     linkedin: "https://www.linkedin.com/",
     twitter: "https://twitter.com/",
-    facebook: "https://www.facebook.com/",
-    instagram: "https://www.instagram.com/",
   },
 
   regulator: {

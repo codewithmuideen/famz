@@ -113,8 +113,6 @@ export const aboutMenu = {
       title: "The Firm",
       items: [
         { label: "About Us", to: "/about" },
-        { label: "Our Approach", to: "/about" },
-        { label: "Our Team", to: "/about" },
         { label: "Careers", to: "/careers" },
       ],
     },

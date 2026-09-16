@@ -5,11 +5,9 @@ import ScrollReveal from "../components/common/ScrollReveal";
 import ContentSplitSection from "../components/sections/ContentSplitSection";
 import FounderBio from "../components/sections/FounderBio";
 import StatCounter from "../components/common/StatCounter";
-import TeamCard from "../components/cards/TeamCard";
 import CTASection from "../components/sections/CTASection";
 import ImageReveal from "../components/common/ImageReveal";
 import { siteConfig } from "../constants/siteConfig";
-import { team } from "../constants/team";
 import { CheckCircle2 } from "lucide-react";
 import accaBadge from "../assets/images/acca-badge.jpg";
 
@@ -45,7 +43,7 @@ export default function About() {
     <>
       <Seo
         title="Who We Are"
-        description="Dieux Accounting & Advisory is an ACCA-regulated accounting and advisory firm. Learn about our approach, values and team."
+        description="Dieux Accounting & Advisory is an ACCA-regulated accounting and advisory firm. Learn about our story, approach and values."
         path="/about"
         breadcrumbs={[{ name: "Who We Are", url: "/about" }]}
       />
@@ -148,22 +146,6 @@ export default function About() {
           {siteConfig.stats.map((stat) => (
             <StatCounter key={stat.label} {...stat} tone="dark" />
           ))}
-        </div>
-      </section>
-
-      <section className="bg-surface-white py-20 sm:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Our Team"
-            title="The people behind your advice"
-            description="A small, senior team, so you always know exactly who you're working with."
-            className="mb-14"
-          />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member, i) => (
-              <TeamCard key={member.name} member={member} index={i} />
-            ))}
-          </div>
         </div>
       </section>
 
