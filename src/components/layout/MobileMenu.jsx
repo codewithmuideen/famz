@@ -32,18 +32,23 @@ function MobileAccordion({ item, onNavigate }) {
 
   return (
     <div className="border-b border-line-dark">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="flex w-full items-center justify-between py-5 text-xl text-ink-inverse"
-      >
-        {item.label}
-        <ChevronDown
-          size={20}
-          className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-        />
-      </button>
+      <div className="flex items-center justify-between">
+        <Link to={item.path} onClick={onNavigate} className="flex-1 py-5 text-xl text-ink-inverse">
+          {item.label}
+        </Link>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label={`${open ? "Collapse" : "Expand"} ${item.label} menu`}
+          className="p-2 text-ink-inverse"
+        >
+          <ChevronDown
+            size={20}
+            className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          />
+        </button>
+      </div>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
