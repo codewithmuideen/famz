@@ -59,7 +59,7 @@ export default function About() {
         eyebrow="Our Story"
         title="More than accounts and tax returns"
         paragraphs={[
-          siteConfig.description,
+          "From day-to-day bookkeeping and statutory compliance through to tax planning and strategic business advisory, we cover the full range of financial support a growing business needs, without you having to juggle multiple advisers.",
           "We work as an extension of our clients' businesses, providing clear financial information, proactive advice and practical solutions that help individuals and businesses understand their finances and achieve their objectives.",
         ]}
         image="intro-team-workplace"
@@ -110,13 +110,13 @@ export default function About() {
       </section>
 
       <ContentSplitSection
-        eyebrow="Recognised & Regulated"
-        title="A name you can find, and trust"
+        eyebrow="Direct Access, No Layers"
+        title="You'll always know exactly who you're working with"
         paragraphs={[
-          "Dieux Accounting & Advisory is an ACCA-regulated firm. Our name stands behind every return we file, every set of accounts we prepare, and every piece of advice we give.",
+          "There's no account-manager layer between you and the person doing the work. You deal directly with the people advising you, whether that's a quick question by email or a more involved planning conversation.",
         ]}
         bullets={[
-          "ACCA-regulated accounting and advisory firm",
+          "Direct access to the person handling your work, not a call centre",
           "Serving individuals, entrepreneurs and growing businesses",
           "UK-wide, with international client experience",
         ]}

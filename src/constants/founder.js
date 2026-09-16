@@ -5,7 +5,7 @@ export const founder = {
   title: "Founder & Director, Dieux Accounting & Advisory",
   image: "maleb",
   intro: [
-    "Gabriel Omoruyi is the Founder and Director of Dieux Accounting & Advisory, an ACCA-regulated accounting and advisory firm supporting private individuals, entrepreneurs, owner-managed businesses, SMEs and growing companies across the UK and internationally.",
+    "Gabriel Omoruyi is the Founder and Director of Dieux Accounting & Advisory, an ACCA-regulated accounting and advisory firm based in the UK.",
     "Before founding Dieux Accounting & Advisory, Gabriel gained professional experience with leading organisations including Citigroup (Citi), Lloyds Banking Group, Bentley Motors and QBE Insurance.",
     "This diverse experience across banking, financial services, insurance and the automotive sector provided a strong foundation in financial operations, reporting, controls and commercial decision-making, while developing an understanding of the financial challenges faced by organisations of different sizes and industries.",
     "Today, that experience is brought directly into the work at Dieux Accounting & Advisory, combining the professional standards and discipline of large corporate organisations with a personal and commercially focused approach to client service.",
