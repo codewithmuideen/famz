@@ -22,7 +22,7 @@ export const primaryNav = [
   },
   {
     label: "Who We Are",
-    path: "/about",
+    path: "/who-we-are",
     megaMenu: "about",
   },
 ];
@@ -112,7 +112,7 @@ export const aboutMenu = {
     {
       title: "Explore",
       items: [
-        { label: "Careers", to: "/careers" },
+        { label: "About Us", to: "/about" },
         { label: "Insights", to: "/insights" },
         { label: "Locations", to: "/locations" },
         { label: "Contact Us", to: "/contact" },
@@ -146,7 +146,8 @@ export const footerNav = {
     { label: "Healthcare", to: "/industries/healthcare" },
   ],
   company: [
-    { label: "Who We Are", to: "/about" },
+    { label: "Who We Are", to: "/who-we-are" },
+    { label: "About Us", to: "/about" },
     { label: "Insights", to: "/insights" },
     { label: "Careers", to: "/careers" },
     { label: "Locations", to: "/locations" },

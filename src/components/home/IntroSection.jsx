@@ -10,7 +10,7 @@ export default function IntroSection() {
         "Our approach combines professional accounting expertise with modern technology and commercial insight, giving you a responsive, efficient and genuinely personalised service.",
       ]}
       image="intro-team-workplace"
-      cta={{ label: "More about us", to: "/about" }}
+      cta={{ label: "More about us", to: "/who-we-are" }}
     />
   );
 }

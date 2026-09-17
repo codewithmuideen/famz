@@ -4,7 +4,8 @@ import MainLayout from "./layouts/MainLayout";
 import LoadingScreen from "./components/common/LoadingScreen";
 import Home from "./pages/Home";
 
-const About = lazy(() => import("./pages/About"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const WhoWeAre = lazy(() => import("./pages/WhoWeAre"));
 const Services = lazy(() => import("./pages/Services"));
 const ServiceDetails = lazy(() => import("./pages/ServiceDetails"));
 const Industries = lazy(() => import("./pages/Industries"));
@@ -29,7 +30,8 @@ export default function App() {
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/who-we-are" element={<WhoWeAre />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetails />} />
               <Route path="/industries" element={<Industries />} />

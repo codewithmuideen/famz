@@ -3,7 +3,6 @@ import PageHero from "../components/common/PageHero";
 import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
 import ContentSplitSection from "../components/sections/ContentSplitSection";
-import FounderBio from "../components/sections/FounderBio";
 import StatCounter from "../components/common/StatCounter";
 import CTASection from "../components/sections/CTASection";
 import ImageReveal from "../components/common/ImageReveal";
@@ -38,14 +37,14 @@ const values = [
   },
 ];
 
-export default function About() {
+export default function WhoWeAre() {
   return (
     <>
       <Seo
         title="Who We Are"
         description="Dieux Accounting & Advisory is an ACCA-regulated accounting and advisory firm. Learn about our story, approach and values."
-        path="/about"
-        breadcrumbs={[{ name: "Who We Are", url: "/about" }]}
+        path="/who-we-are"
+        breadcrumbs={[{ name: "Who We Are", url: "/who-we-are" }]}
       />
       <PageHero
         eyebrow="Who We Are"
@@ -64,8 +63,6 @@ export default function About() {
         ]}
         image="intro-team-workplace"
       />
-
-      <FounderBio />
 
       <section className="border-y border-line bg-surface-cream py-16">
         <div className="container-page flex flex-col items-center gap-8 text-center sm:flex-row sm:text-left">
