@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { footerNav } from "../../constants/navigation";
 import { siteConfig } from "../../constants/siteConfig";
@@ -60,18 +60,29 @@ export default function Footer() {
           <p className="max-w-sm text-sm leading-relaxed text-ink-inverse-muted">
             {siteConfig.description}
           </p>
-          <div className="flex items-center gap-2 text-sm text-ink-inverse-muted">
-            <Mail size={16} />
-            <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-ink-inverse">
-              {siteConfig.contact.email}
-            </a>
+
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2 text-sm text-ink-inverse-muted">
+              <Mail size={16} />
+              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-ink-inverse">
+                {siteConfig.contact.email}
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-ink-inverse-muted">
+              <Phone size={16} />
+              <a href="tel:02036339182" className="hover:text-ink-inverse">
+                020 3633 9182
+              </a>
+            </div>
           </div>
+
           <div className="flex w-fit items-center gap-3 rounded-lg bg-surface-white p-2 pr-4">
             <img src={accaBadge} alt="ACCA: The Association of Chartered Certified Accountants" className="h-10 w-10 rounded" />
             <span className="text-xs font-medium leading-tight text-brand-navy">
               ACCA Regulated Firm
             </span>
           </div>
+
           <div className="flex items-center gap-3 pt-2">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a

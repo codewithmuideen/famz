@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, MapPin, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Phone, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
@@ -145,6 +145,13 @@ export default function Contact() {
                 >
                   <Mail size={18} className="mt-0.5 shrink-0 text-brand-gold" />
                   {siteConfig.contact.email}
+                </a>
+                <a
+                  href="tel:02036339182"
+                  className="flex items-start gap-3 text-sm text-ink-muted transition-colors hover:text-brand-navy"
+                >
+                  <Phone size={18} className="mt-0.5 shrink-0 text-brand-gold" />
+                  020 3633 9182
                 </a>
                 <div className="flex items-start gap-3 text-sm text-ink-muted">
                   <MapPin size={18} className="mt-0.5 shrink-0 text-brand-gold" />
