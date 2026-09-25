@@ -19,6 +19,12 @@ import {
   LaptopMinimal,
   TrendingUp,
   HeartHandshake,
+  Clock,
+  Banknote,
+  BellRing,
+  Rocket,
+  Globe2,
+  CheckCircle2,
 } from "lucide-react";
 
 export const iconMap = {
@@ -40,6 +46,12 @@ export const iconMap = {
   LaptopMinimal,
   TrendingUp,
   HeartHandshake,
+  Clock,
+  Banknote,
+  BellRing,
+  Rocket,
+  Globe2,
+  CheckCircle2,
 };
 
 export const getIcon = (name) => iconMap[name] ?? Briefcase;

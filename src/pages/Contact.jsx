@@ -5,6 +5,23 @@ import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import Button from "../components/common/Button";
 import { siteConfig } from "../constants/siteConfig";
+import { useSiteContent } from "../hooks/useSiteContent";
+import { useSiteSettings } from "../hooks/useSiteSettings";
+
+const heroDefaults = {
+  eyebrow: "Contact",
+  title: "Let's talk about your finances and your future",
+  description: "Whether you need support with compliance or a strategic finance partner to help you grow, our team is here to help.",
+};
+
+const regulationDefaults = {
+  label: "Regulation",
+  text: `${siteConfig.regulator.name}. ${siteConfig.name} is a regulated firm, registration details available on request for verification purposes.`,
+};
+
+const thankYouDefaults = {
+  title: "Thank you, your message is on its way",
+};
 
 const initialValues = {
   firstName: "",
@@ -99,6 +116,10 @@ export default function Contact() {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const { content: hero } = useSiteContent("contact", "hero", heroDefaults);
+  const { content: regulation } = useSiteContent("contact", "regulation", regulationDefaults);
+  const { content: thankYou } = useSiteContent("contact", "thankYou", thankYouDefaults);
+  const { content: settings } = useSiteSettings();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -126,9 +147,9 @@ export default function Contact() {
         breadcrumbs={[{ name: "Contact", url: "/contact" }]}
       />
       <PageHero
-        eyebrow="Contact"
-        title="Let's talk about your finances and your future"
-        description="Whether you need support with compliance or a strategic finance partner to help you grow, our team is here to help."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
         image="contact-office"
         breadcrumbItems={[{ label: "Contact" }]}
       />
@@ -140,37 +161,34 @@ export default function Contact() {
               <h2 className="mb-4 text-xl text-ink">Get in touch directly</h2>
               <div className="flex flex-col gap-4">
                 <a
-                  href={`mailto:${siteConfig.contact.email}`}
+                  href={`mailto:${settings.email}`}
                   className="flex items-start gap-3 text-sm text-ink-muted transition-colors hover:text-brand-navy"
                 >
                   <Mail size={18} className="mt-0.5 shrink-0 text-brand-gold" />
-                  {siteConfig.contact.email}
+                  {settings.email}
                 </a>
                 <a
-                  href="tel:02036339182"
+                  href={`tel:${settings.phoneHref}`}
                   className="flex items-start gap-3 text-sm text-ink-muted transition-colors hover:text-brand-navy"
                 >
                   <Phone size={18} className="mt-0.5 shrink-0 text-brand-gold" />
-                  020 3633 9182
+                  {settings.phoneDisplay}
                 </a>
                 <div className="flex items-start gap-3 text-sm text-ink-muted">
                   <MapPin size={18} className="mt-0.5 shrink-0 text-brand-gold" />
                   <span>
-                    {siteConfig.contact.addressLine1}
+                    {settings.addressLine1}
                     <br />
-                    {siteConfig.contact.addressLine2}
+                    {settings.addressLine2}
                   </span>
                 </div>
               </div>
             </div>
             <div className="border border-line bg-surface-cream p-6">
               <span className="text-xs font-semibold uppercase tracking-[0.1em] text-ink-soft">
-                Regulation
+                {regulation.label}
               </span>
-              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                {siteConfig.regulator.name}. {siteConfig.name} is a regulated firm, registration
-                details available on request for verification purposes.
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">{regulation.text}</p>
             </div>
           </div>
 
@@ -182,7 +200,7 @@ export default function Contact() {
                 className="flex flex-col items-start gap-4 border border-line bg-surface-cream p-10"
               >
                 <CheckCircle2 size={36} className="text-brand-gold" />
-                <h2 className="text-2xl text-ink">Thank you, your message is on its way</h2>
+                <h2 className="text-2xl text-ink">{thankYou.title}</h2>
                 <p className="text-ink-muted">
                   A member of our team will get back to you at {values.email} shortly.
                 </p>

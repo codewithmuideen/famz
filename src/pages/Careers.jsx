@@ -5,11 +5,44 @@ import SectionHeading from "../components/common/SectionHeading";
 import ScrollReveal from "../components/common/ScrollReveal";
 import ContentSplitSection from "../components/sections/ContentSplitSection";
 import CTASection from "../components/sections/CTASection";
-import { benefits, openRoles } from "../constants/careers";
-import { siteConfig } from "../constants/siteConfig";
+import { benefits as fallbackBenefits, openRoles as fallbackOpenRoles } from "../constants/careers";
 import { getIcon } from "../constants/iconMap";
+import { useCollection } from "../hooks/useCollection";
+import { useSiteContent } from "../hooks/useSiteContent";
+import { useSiteSettings } from "../hooks/useSiteSettings";
+
+const heroDefaults = {
+  eyebrow: "Careers",
+  title: "Do the best work of your career here",
+  description: "We're a small, technology-driven team that gives people real responsibility early, and invests properly in their professional development.",
+};
+
+const whyJoinDefaults = {
+  eyebrow: "Why Join Us",
+  title: "A firm where your contribution is visible",
+  paragraph1: "We're intentionally small. That means client work isn't handed to you piecemeal after years of back-office tasks. You build real client relationships early, supported by senior colleagues who are genuinely invested in your growth.",
+  paragraph2: "Our technology-driven approach means less time on repetitive manual work, and more time on the advisory work that actually develops your skills.",
+};
+
+const benefitsIntroDefaults = { eyebrow: "Benefits", title: "What you can expect" };
+const rolesIntroDefaults = { eyebrow: "Open Roles", title: "Current opportunities" };
+
+const ctaDefaults = {
+  eyebrow: "Don't see the right role?",
+  title: "Send us a speculative application",
+  description: "We're always interested in hearing from talented, client-focused people.",
+};
 
 export default function Careers() {
+  const { items: openRoles } = useCollection("careers", fallbackOpenRoles);
+  const { items: benefits } = useCollection("benefits", fallbackBenefits);
+  const { content: hero } = useSiteContent("careers", "hero", heroDefaults);
+  const { content: whyJoin } = useSiteContent("careers", "whyJoin", whyJoinDefaults);
+  const { content: benefitsIntro } = useSiteContent("careers", "benefitsIntro", benefitsIntroDefaults);
+  const { content: rolesIntro } = useSiteContent("careers", "rolesIntro", rolesIntroDefaults);
+  const { content: cta } = useSiteContent("careers", "cta", ctaDefaults);
+  const { content: settings } = useSiteSettings();
+
   return (
     <>
       <Seo
@@ -19,31 +52,28 @@ export default function Careers() {
         breadcrumbs={[{ name: "Careers", url: "/careers" }]}
       />
       <PageHero
-        eyebrow="Careers"
-        title="Do the best work of your career here"
-        description="We're a small, technology-driven team that gives people real responsibility early, and invests properly in their professional development."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
         image="careers-culture"
         breadcrumbItems={[{ label: "Careers" }]}
       />
 
       <ContentSplitSection
-        eyebrow="Why Join Us"
-        title="A firm where your contribution is visible"
-        paragraphs={[
-          "We're intentionally small. That means client work isn't handed to you piecemeal after years of back-office tasks. You build real client relationships early, supported by senior colleagues who are genuinely invested in your growth.",
-          "Our technology-driven approach means less time on repetitive manual work, and more time on the advisory work that actually develops your skills.",
-        ]}
+        eyebrow={whyJoin.eyebrow}
+        title={whyJoin.title}
+        paragraphs={[whyJoin.paragraph1, whyJoin.paragraph2]}
         image="careers-brainstorm"
       />
 
       <section className="bg-surface-cream py-20 sm:py-28">
         <div className="container-page">
-          <SectionHeading eyebrow="Benefits" title="What you can expect" className="mb-14" />
+          <SectionHeading eyebrow={benefitsIntro.eyebrow} title={benefitsIntro.title} className="mb-14" />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((benefit, i) => {
               const Icon = getIcon(benefit.icon);
               return (
-                <ScrollReveal key={benefit.title} delay={i * 0.06}>
+                <ScrollReveal key={benefit.id || benefit.title} delay={i * 0.06}>
                   <div className="flex h-full flex-col gap-3 border border-line bg-surface-white p-8">
                     <Icon className="text-brand-gold" size={26} strokeWidth={1.5} aria-hidden="true" />
                     <h3 className="text-lg text-ink">{benefit.title}</h3>
@@ -58,13 +88,13 @@ export default function Careers() {
 
       <section className="bg-surface-white py-20 sm:py-28">
         <div className="container-page">
-          <SectionHeading eyebrow="Open Roles" title="Current opportunities" className="mb-14" />
+          <SectionHeading eyebrow={rolesIntro.eyebrow} title={rolesIntro.title} className="mb-14" />
           {openRoles.length > 0 ? (
             <div className="flex flex-col divide-y divide-line border-y border-line">
               {openRoles.map((role, i) => (
                 <ScrollReveal key={role.slug} delay={i * 0.05}>
                   <a
-                    href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
+                    href={`mailto:${settings.email}?subject=${encodeURIComponent(
                       `Application: ${role.title}`
                     )}`}
                     className="group flex flex-col gap-4 py-8 transition-colors hover:bg-surface-cream sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -106,11 +136,11 @@ export default function Careers() {
       </section>
 
       <CTASection
-        eyebrow="Don't see the right role?"
-        title="Send us a speculative application"
-        description="We're always interested in hearing from talented, client-focused people."
+        eyebrow={cta.eyebrow}
+        title={cta.title}
+        description={cta.description}
         ctaLabel="Email us"
-        ctaTo={`mailto:${siteConfig.contact.email}`}
+        ctaTo={`mailto:${settings.email}`}
       />
     </>
   );

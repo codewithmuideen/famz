@@ -5,17 +5,19 @@ import ImageReveal from "../components/common/ImageReveal";
 import ScrollReveal from "../components/common/ScrollReveal";
 import InsightCard from "../components/cards/InsightCard";
 import CTASection from "../components/sections/CTASection";
-import { getInsightBySlug, insights } from "../constants/insights";
+import { insights as fallbackInsights } from "../constants/insights";
+import { useCollection } from "../hooks/useCollection";
 
 const formatDate = (iso) =>
   new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
 export default function InsightDetails() {
   const { slug } = useParams();
-  const insight = getInsightBySlug(slug);
+  const { items: insights, loading } = useCollection("insights", fallbackInsights);
+  const insight = insights.find((i) => i.slug === slug);
 
   if (!insight) {
-    return <Navigate to="/insights" replace />;
+    return loading ? null : <Navigate to="/insights" replace />;
   }
 
   const related = insights.filter((i) => insight.relatedInsights?.includes(i.slug));

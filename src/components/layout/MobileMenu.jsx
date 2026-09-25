@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronDown, X, Mail, MapPin } from "lucide-react";
+import { ChevronDown, X, Mail, MapPin, Phone } from "lucide-react";
 import { primaryNav, servicesMenu, industriesMenu, aboutMenu } from "../../constants/navigation";
 import { siteConfig } from "../../constants/siteConfig";
 import Button from "../common/Button";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
+import { useSiteSettings } from "../../hooks/useSiteSettings";
 import logoWhite from "../../assets/logos/logowhite.png";
 
 const subMenus = {
@@ -80,6 +81,7 @@ function MobileAccordion({ item, onNavigate }) {
 
 export default function MobileMenu({ open, onClose, onOpenLocation }) {
   useLockBodyScroll(open);
+  const { content: settings } = useSiteSettings();
 
   return (
     <AnimatePresence>
@@ -125,11 +127,18 @@ export default function MobileMenu({ open, onClose, onOpenLocation }) {
               Where we work
             </button>
             <a
-              href={`mailto:${siteConfig.contact.email}`}
+              href={`tel:${settings.phoneHref}`}
+              className="flex items-center gap-2 text-sm text-ink-inverse-muted"
+            >
+              <Phone size={16} />
+              {settings.phoneDisplay}
+            </a>
+            <a
+              href={`mailto:${settings.email}`}
               className="flex items-center gap-2 text-sm text-ink-inverse-muted"
             >
               <Mail size={16} />
-              {siteConfig.contact.email}
+              {settings.email}
             </a>
             <Button to="/contact" variant="secondary" onClick={onClose} className="mt-2 w-full justify-center">
               Get in touch

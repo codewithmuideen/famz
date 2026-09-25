@@ -2,9 +2,27 @@ import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import IndustryCard from "../components/cards/IndustryCard";
 import CTASection from "../components/sections/CTASection";
-import { industries } from "../constants/industries";
+import { industries as fallbackIndustries } from "../constants/industries";
+import { useCollection } from "../hooks/useCollection";
+import { useSiteContent } from "../hooks/useSiteContent";
+
+const heroDefaults = {
+  eyebrow: "Industries",
+  title: "Advice shaped by how your sector actually works",
+  description: "We work with individuals and businesses across a wide range of sectors, bringing sector-specific context to every engagement.",
+};
+
+const ctaDefaults = {
+  eyebrow: "Don't see your sector?",
+  title: "We work across many more industries than listed here.",
+  description: "Get in touch and tell us about your business, and we'll let you know how we can help.",
+};
 
 export default function Industries() {
+  const { items: industries } = useCollection("industries", fallbackIndustries);
+  const { content: hero } = useSiteContent("industries", "hero", heroDefaults);
+  const { content: cta } = useSiteContent("industries", "cta", ctaDefaults);
+
   return (
     <>
       <Seo
@@ -14,9 +32,9 @@ export default function Industries() {
         breadcrumbs={[{ name: "Industries", url: "/industries" }]}
       />
       <PageHero
-        eyebrow="Industries"
-        title="Advice shaped by how your sector actually works"
-        description="We work with individuals and businesses across a wide range of sectors, bringing sector-specific context to every engagement."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
         image="industry-consultancy"
         breadcrumbItems={[{ label: "Industries" }]}
       />
@@ -31,11 +49,7 @@ export default function Industries() {
         </div>
       </section>
 
-      <CTASection
-        eyebrow="Don't see your sector?"
-        title="We work across many more industries than listed here."
-        description="Get in touch and tell us about your business, and we'll let you know how we can help."
-      />
+      <CTASection eyebrow={cta.eyebrow} title={cta.title} description={cta.description} />
     </>
   );
 }

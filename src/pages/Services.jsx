@@ -2,9 +2,27 @@ import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import ServiceCard from "../components/cards/ServiceCard";
 import CTASection from "../components/sections/CTASection";
-import { services } from "../constants/services";
+import { services as fallbackServices } from "../constants/services";
+import { useCollection } from "../hooks/useCollection";
+import { useSiteContent } from "../hooks/useSiteContent";
+
+const heroDefaults = {
+  eyebrow: "What We Do",
+  title: "End-to-end accounting and advisory support",
+  description: "From day-to-day compliance to strategic financial advisory, practical expertise for individuals, entrepreneurs, owner-managed businesses and growing companies.",
+};
+
+const ctaDefaults = {
+  eyebrow: "Not sure where to start?",
+  title: "Tell us about your situation and we'll point you the right way.",
+  description: "",
+};
 
 export default function Services() {
+  const { items: services } = useCollection("services", fallbackServices);
+  const { content: hero } = useSiteContent("services", "hero", heroDefaults);
+  const { content: cta } = useSiteContent("services", "cta", ctaDefaults);
+
   return (
     <>
       <Seo
@@ -14,9 +32,9 @@ export default function Services() {
         breadcrumbs={[{ name: "Services", url: "/services" }]}
       />
       <PageHero
-        eyebrow="What We Do"
-        title="End-to-end accounting and advisory support"
-        description="From day-to-day compliance to strategic financial advisory, practical expertise for individuals, entrepreneurs, owner-managed businesses and growing companies."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
         image="service-advisory"
         breadcrumbItems={[{ label: "Services" }]}
       />
@@ -31,10 +49,7 @@ export default function Services() {
         </div>
       </section>
 
-      <CTASection
-        eyebrow="Not sure where to start?"
-        title="Tell us about your situation and we'll point you the right way."
-      />
+      <CTASection eyebrow={cta.eyebrow} title={cta.title} description={cta.description || undefined} />
     </>
   );
 }

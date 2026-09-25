@@ -5,11 +5,7 @@ import { footerNav } from "../../constants/navigation";
 import { siteConfig } from "../../constants/siteConfig";
 import accaBadge from "../../assets/images/acca-badge.jpg";
 import logoWhite from "../../assets/logos/logowhite.png";
-
-const socialLinks = [
-  { icon: FaLinkedinIn, href: siteConfig.social.linkedin, label: "LinkedIn" },
-  { icon: FaXTwitter, href: siteConfig.social.twitter, label: "Twitter / X" },
-];
+import { useSiteSettings } from "../../hooks/useSiteSettings";
 
 function FooterColumn({ title, links }) {
   return (
@@ -49,6 +45,11 @@ function FooterColumn({ title, links }) {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { content: settings } = useSiteSettings();
+  const socialLinks = [
+    { icon: FaLinkedinIn, href: settings.linkedin, label: "LinkedIn" },
+    { icon: FaXTwitter, href: settings.twitter, label: "Twitter / X" },
+  ];
 
   return (
     <footer className="bg-surface-dark text-ink-inverse">
@@ -58,20 +59,20 @@ export default function Footer() {
             <img src={logoWhite} alt={siteConfig.name} className="h-10 w-auto object-contain sm:h-12" />
           </Link>
           <p className="max-w-sm text-sm leading-relaxed text-ink-inverse-muted">
-            {siteConfig.description}
+            {settings.description}
           </p>
 
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2 text-sm text-ink-inverse-muted">
               <Mail size={16} />
-              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-ink-inverse">
-                {siteConfig.contact.email}
+              <a href={`mailto:${settings.email}`} className="hover:text-ink-inverse">
+                {settings.email}
               </a>
             </div>
             <div className="flex items-center gap-2 text-sm text-ink-inverse-muted">
               <Phone size={16} />
-              <a href="tel:02036339182" className="hover:text-ink-inverse">
-                020 3633 9182
+              <a href={`tel:${settings.phoneHref}`} className="hover:text-ink-inverse">
+                {settings.phoneDisplay}
               </a>
             </div>
           </div>

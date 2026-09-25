@@ -5,17 +5,21 @@ import PageHero from "../components/common/PageHero";
 import ScrollReveal from "../components/common/ScrollReveal";
 import CTASection from "../components/sections/CTASection";
 import InsightCard from "../components/cards/InsightCard";
-import { getIndustryBySlug } from "../constants/industries";
-import { services } from "../constants/services";
-import { insights } from "../constants/insights";
+import { industries as fallbackIndustries } from "../constants/industries";
+import { services as fallbackServices } from "../constants/services";
+import { insights as fallbackInsights } from "../constants/insights";
 import { getIcon } from "../constants/iconMap";
+import { useCollection } from "../hooks/useCollection";
 
 export default function IndustryDetails() {
   const { slug } = useParams();
-  const industry = getIndustryBySlug(slug);
+  const { items: industries, loading } = useCollection("industries", fallbackIndustries);
+  const { items: services } = useCollection("services", fallbackServices);
+  const { items: insights } = useCollection("insights", fallbackInsights);
+  const industry = industries.find((i) => i.slug === slug);
 
   if (!industry) {
-    return <Navigate to="/industries" replace />;
+    return loading ? null : <Navigate to="/industries" replace />;
   }
 
   const Icon = getIcon(industry.icon);

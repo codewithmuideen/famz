@@ -1,8 +1,18 @@
 import { Quote } from "lucide-react";
 import ScrollReveal from "../common/ScrollReveal";
-import { testimonials } from "../../constants/testimonials";
+import { testimonials as fallbackTestimonials } from "../../constants/testimonials";
+import { useCollection } from "../../hooks/useCollection";
+import { useSiteContent } from "../../hooks/useSiteContent";
+
+const defaults = {
+  eyebrow: "Client Feedback",
+  title: "Trusted Voices, Proven Impact",
+  description: "Discover how our tailored advisory and accounting services empower UK businesses to thrive.",
+};
 
 export default function TestimonialSection() {
+  const { items: testimonials } = useCollection("testimonials", fallbackTestimonials);
+  const { content } = useSiteContent("home", "testimonialsIntro", defaults);
   if (!testimonials || testimonials.length === 0) return null;
 
   return (
@@ -12,14 +22,12 @@ export default function TestimonialSection() {
           {/* Header Section */}
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <span className="text-xs font-semibold tracking-widest text-brand-gold uppercase">
-              Client Feedback
+              {content.eyebrow}
             </span>
             <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-display text-ink font-semibold tracking-tight">
-              Trusted Voices, Proven Impact
+              {content.title}
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-ink-muted">
-              Discover how our tailored advisory and accounting services empower UK businesses to thrive.
-            </p>
+            <p className="mt-3 text-sm sm:text-base text-ink-muted">{content.description}</p>
           </div>
 
           {/* 3-Column Straight Line Grid Layout */}

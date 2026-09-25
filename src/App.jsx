@@ -3,6 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import LoadingScreen from "./components/common/LoadingScreen";
 import Home from "./pages/Home";
+import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoute from "./components/admin/ProtectedRoute";
+
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const WhoWeAre = lazy(() => import("./pages/WhoWeAre"));
@@ -26,27 +31,38 @@ export default function App() {
     <>
       {loading && <LoadingScreen onFinish={() => setLoading(false)} />}
       <BrowserRouter>
-        <Suspense fallback={null}>
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/who-we-are" element={<WhoWeAre />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/:slug" element={<ServiceDetails />} />
-              <Route path="/industries" element={<Industries />} />
-              <Route path="/industries/:slug" element={<IndustryDetails />} />
-              <Route path="/insights" element={<Insights />} />
-              <Route path="/insights/:slug" element={<InsightDetails />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/locations" element={<Locations />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
+        <AuthProvider>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route element={<MainLayout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/who-we-are" element={<WhoWeAre />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/industries" element={<Industries />} />
+                <Route path="/industries/:slug" element={<IndustryDetails />} />
+                <Route path="/insights" element={<Insights />} />
+                <Route path="/insights/:slug" element={<InsightDetails />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/locations" element={<Locations />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

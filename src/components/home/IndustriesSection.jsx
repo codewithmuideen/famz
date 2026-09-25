@@ -1,20 +1,26 @@
 import SectionHeading from "../common/SectionHeading";
 import IndustryCard from "../cards/IndustryCard";
 import Button from "../common/Button";
-import { industries } from "../../constants/industries";
+import { industries as fallbackIndustries } from "../../constants/industries";
+import { useCollection } from "../../hooks/useCollection";
+import { useSiteContent } from "../../hooks/useSiteContent";
+
+const defaults = {
+  eyebrow: "Sectors",
+  title: "Sector-aware advice, not generic guidance",
+  description: "We work with individuals and businesses across a wide range of sectors. Here are a few we know especially well.",
+};
 
 export default function IndustriesSection() {
+  const { items: industries } = useCollection("industries", fallbackIndustries);
+  const { content } = useSiteContent("home", "industriesSection", defaults);
   const featured = industries.slice(0, 6);
 
   return (
     <section className="bg-surface-cream py-20 sm:py-28">
       <div className="container-page">
         <div className="mb-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow="Sectors"
-            title="Sector-aware advice, not generic guidance"
-            description="We work with individuals and businesses across a wide range of sectors. Here are a few we know especially well."
-          />
+          <SectionHeading eyebrow={content.eyebrow} title={content.title} description={content.description} />
           <Button to="/industries" variant="outline" className="shrink-0">
             All industries
           </Button>

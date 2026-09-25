@@ -4,16 +4,19 @@ import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import ScrollReveal from "../components/common/ScrollReveal";
 import CTASection from "../components/sections/CTASection";
-import { getServiceBySlug, services } from "../constants/services";
-import { industries } from "../constants/industries";
+import { services as fallbackServices } from "../constants/services";
+import { industries as fallbackIndustries } from "../constants/industries";
 import { getIcon } from "../constants/iconMap";
+import { useCollection } from "../hooks/useCollection";
 
 export default function ServiceDetails() {
   const { slug } = useParams();
-  const service = getServiceBySlug(slug);
+  const { items: services, loading } = useCollection("services", fallbackServices);
+  const { items: industries } = useCollection("industries", fallbackIndustries);
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) {
-    return <Navigate to="/services" replace />;
+    return loading ? null : <Navigate to="/services" replace />;
   }
 
   const Icon = getIcon(service.icon);

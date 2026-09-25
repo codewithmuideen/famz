@@ -3,11 +3,25 @@ import { FileSearch } from "lucide-react";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import InsightCard from "../components/cards/InsightCard";
-import { insights, insightCategories } from "../constants/insights";
+import { insights as fallbackInsights } from "../constants/insights";
+import { useCollection } from "../hooks/useCollection";
+import { useSiteContent } from "../hooks/useSiteContent";
 
 const PAGE_SIZE = 6;
 
+const heroDefaults = {
+  eyebrow: "Insights",
+  title: "Practical thinking, not jargon",
+  description: "Timely, readable articles on tax, compliance and business finance, written for people running businesses, not accountants.",
+};
+
 export default function Insights() {
+  const { items: insights } = useCollection("insights", fallbackInsights);
+  const { content: hero } = useSiteContent("insights", "hero", heroDefaults);
+  const insightCategories = useMemo(
+    () => [...new Set(insights.map((i) => i.category).filter(Boolean))],
+    [insights]
+  );
   const [activeCategory, setActiveCategory] = useState("All");
   const [query, setQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -33,9 +47,9 @@ export default function Insights() {
         breadcrumbs={[{ name: "Insights", url: "/insights" }]}
       />
       <PageHero
-        eyebrow="Insights"
-        title="Practical thinking, not jargon"
-        description="Timely, readable articles on tax, compliance and business finance, written for people running businesses, not accountants."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
         image="insight-2"
         breadcrumbItems={[{ label: "Insights" }]}
       />

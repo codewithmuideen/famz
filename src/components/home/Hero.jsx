@@ -4,15 +4,25 @@ import AnimatedText from "../common/AnimatedText";
 import Button from "../common/Button";
 import ImageReveal from "../common/ImageReveal";
 import { siteConfig } from "../../constants/siteConfig";
+import { useSiteContent } from "../../hooks/useSiteContent";
+
+const defaults = {
+  eyebrow: "Chartered Accountants · ACCA Regulated",
+  tagline: siteConfig.tagline,
+  description:
+    "Practical accounting, tax and business advisory for individuals and ambitious businesses across the UK and internationally.",
+  image: "about-office-glass",
+};
 
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
+  const { content } = useSiteContent("home", "hero", defaults);
 
   return (
     <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-surface-dark pt-32">
       <div className="absolute inset-0">
         <ImageReveal
-          src="about-office-glass"
+          src={content.image}
           alt="Modern glass office towers representing UK and international business"
           effect="fade"
           className="h-full w-full"
@@ -25,11 +35,11 @@ export default function Hero() {
 
       <div className="container-page relative flex flex-col gap-8 pb-20 sm:pb-28">
         <span className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold-light">
-          Chartered Accountants &middot; ACCA Regulated
+          {content.eyebrow}
         </span>
 
         <AnimatedText
-          text={siteConfig.tagline}
+          text={content.tagline}
           as="h1"
           className="max-w-4xl text-balance text-4xl leading-[1.05] text-ink-inverse sm:text-5xl lg:text-6xl xl:text-7xl"
         />
@@ -40,8 +50,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="max-w-xl text-balance text-lg leading-relaxed text-ink-inverse-muted"
         >
-          Practical accounting, tax and business advisory for individuals and ambitious
-          businesses across the UK and internationally.
+          {content.description}
         </motion.p>
 
         <motion.div

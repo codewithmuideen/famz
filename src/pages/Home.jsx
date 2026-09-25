@@ -9,8 +9,9 @@ import GlobalPresence from "../components/home/GlobalPresence";
 import CareersCTA from "../components/home/CareersCTA";
 import TestimonialSection from "../components/sections/TestimonialSection";
 import LogoCloud from "../components/sections/LogoCloud";
+import { useSiteContent } from "../hooks/useSiteContent";
 
-const sectors = [
+const fallbackSectors = [
   "Technology & Software",
   "E-commerce",
   "Financial Services",
@@ -21,12 +22,16 @@ const sectors = [
   "Start-ups & Scale-ups",
 ];
 
+const logoCloudDefaults = { label: "Sectors we work with", items: fallbackSectors };
+
 export default function Home() {
+  const { content: logoCloud } = useSiteContent("home", "logoCloud", logoCloudDefaults);
+
   return (
     <>
       <Seo path="/" />
       <Hero />
-      <LogoCloud items={sectors} />
+      <LogoCloud items={logoCloud.items} label={logoCloud.label} />
       <IntroSection />
       <FeaturedServices />
       <StatsSection />
