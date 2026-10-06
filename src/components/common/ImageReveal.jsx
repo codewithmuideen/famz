@@ -34,12 +34,16 @@ export default function ImageReveal({
   delay = 0,
   hoverZoom = true,
   priority = false,
+  objectFit = "cover",
+  natural = false,
 }) {
   const shouldReduceMotion = useReducedMotion();
   const resolvedSrc = getImage(src) ?? src;
   const variant = variants[effect] ?? variants.fade;
   const loading = priority ? "eager" : "lazy";
   const fetchPriority = priority ? "high" : "auto";
+  const fitClass = objectFit === "contain" ? "object-contain" : "object-cover";
+  const imgSizeClasses = natural ? "w-full h-auto" : `h-full w-full ${fitClass}`;
 
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -62,7 +66,7 @@ export default function ImageReveal({
           alt={alt}
           loading={loading}
           fetchPriority={fetchPriority}
-          className={`h-full w-full object-cover ${imgClassName}`}
+          className={`${imgSizeClasses} ${imgClassName}`}
         />
       </div>
     );
@@ -82,7 +86,7 @@ export default function ImageReveal({
         alt={alt}
         loading={loading}
         fetchPriority={fetchPriority}
-        className={`h-full w-full object-cover ${imgClassName}`}
+        className={`${imgSizeClasses} ${imgClassName}`}
         whileHover={hoverZoom ? { scale: 1.05 } : undefined}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       />

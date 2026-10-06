@@ -29,7 +29,8 @@ export default function FounderBio() {
               src={f.image}
               alt={`Portrait of ${f.name}`}
               effect="scale"
-              className="aspect-[3/4] w-full max-w-sm"
+              className="w-full max-w-sm"
+              natural
             />
             <div className="mt-6">
               <h3 className="text-xl text-ink">{f.name}</h3>
