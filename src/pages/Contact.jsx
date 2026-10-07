@@ -31,6 +31,7 @@ const initialValues = {
   company: "",
   subject: "",
   message: "",
+  website: "",
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -116,6 +117,8 @@ export default function Contact() {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const { content: hero } = useSiteContent("contact", "hero", heroDefaults);
   const { content: regulation } = useSiteContent("contact", "regulation", regulationDefaults);
   const { content: thankYou } = useSiteContent("contact", "thankYou", thankYouDefaults);
@@ -129,12 +132,30 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate(values);
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length === 0) {
-      setSubmitted(true);
+    if (Object.keys(validationErrors).length > 0) return;
+
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const res = await fetch("/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await res.json().catch(() => ({ success: false }));
+      if (res.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(data.message || "Something went wrong sending your message. Please try again or email us directly.");
+      }
+    } catch {
+      setSubmitError("Something went wrong sending your message. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -217,6 +238,16 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={values.website || ""}
+                  onChange={handleChange}
+                  className="hidden"
+                  aria-hidden="true"
+                />
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Field
                     label="First name"
@@ -279,8 +310,11 @@ export default function Contact() {
                   onChange={handleChange}
                   error={errors.message}
                 />
-                <Button type="submit" variant="primary" size="lg" className="w-fit">
-                  Send message
+                {submitError && (
+                  <p className="text-sm text-red-500">{submitError}</p>
+                )}
+                <Button type="submit" variant="primary" size="lg" className="w-fit" disabled={submitting}>
+                  {submitting ? "Sending..." : "Send message"}
                 </Button>
               </form>
             )}
