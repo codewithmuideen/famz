@@ -8,6 +8,7 @@ export const servicesSchema = [
   { key: "shortDescription", label: "Short description (card summary)", type: "textarea" },
   { key: "fullDescription", label: "Full description (detail page)", type: "textarea" },
   { key: "featured", label: "Featured on homepage", type: "boolean" },
+  { key: "showInGrid", label: "Show on the main Services page grid", type: "boolean" },
   { key: "offerings", label: "Offerings list", type: "list" },
   { key: "relatedServices", label: "Related service slugs", type: "tags" },
   { key: "relatedIndustries", label: "Related industry slugs", type: "tags" },

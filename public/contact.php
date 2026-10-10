@@ -1,11 +1,17 @@
 <?php
 /**
- * Contact form handler for the Dieux website.
- * Receives the form submission and emails it via PHP's mail() function.
+ * Contact form handler for the Dieux website — sends via Resend's API
+ * (https://resend.com), not PHP's built-in mail(), because mail() is
+ * unreliable on shared hosting (silently drops or spam-filters messages
+ * while still reporting "success").
  *
- * NOTE: If the contact email is ever changed through the website's admin
- * dashboard, update $to below to match — this file is separate from that
- * (it runs on the server, the admin only controls what's shown on the page).
+ * Sends two emails per submission:
+ *   1. Admin notification -> CONTACT_ADMIN_EMAIL, with Reply-To set to the
+ *      visitor so you can just hit reply.
+ *   2. Confirmation -> the visitor's own email, so they know it went through.
+ *
+ * Real API key lives in resend-config.php (gitignored, never committed).
+ * See resend-config.example.php for the template.
  */
 
 header("Content-Type: application/json; charset=UTF-8");
@@ -24,12 +30,52 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$to = 'Info@dieux.co.uk';
+$configFile = __DIR__ . '/resend-config.php';
+if (!file_exists($configFile)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Email is not configured on the server yet.']);
+    exit;
+}
+require $configFile;
+
+if (!defined('RESEND_API_KEY') || RESEND_API_KEY === '' || RESEND_API_KEY === 'REPLACE_WITH_REAL_RESEND_API_KEY') {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Email is not configured on the server yet.']);
+    exit;
+}
 
 function clean_field($value) {
     $value = trim((string) ($value ?? ''));
-    // Strip anything that could be used for email header injection.
     return str_replace(["\r", "\n", "%0a", "%0d", "%0A", "%0D"], '', $value);
+}
+
+/** Sends one email via the Resend API. Returns true on success. */
+function send_via_resend($payload) {
+    $ch = curl_init('https://api.resend.com/emails');
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_HTTPHEADER => [
+            'Authorization: Bearer ' . RESEND_API_KEY,
+            'Content-Type: application/json',
+        ],
+        CURLOPT_POSTFIELDS => json_encode($payload),
+        CURLOPT_TIMEOUT => 15,
+    ]);
+    $response = curl_exec($ch);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlError = curl_error($ch);
+    curl_close($ch);
+
+    if ($curlError) {
+        error_log('Resend request failed: ' . $curlError);
+        return false;
+    }
+    if ($status < 200 || $status >= 300) {
+        error_log('Resend API error (' . $status . '): ' . $response);
+        return false;
+    }
+    return true;
 }
 
 $raw = file_get_contents('php://input');
@@ -38,8 +84,7 @@ if (!is_array($data)) {
     $data = $_POST;
 }
 
-// Honeypot: a hidden field real visitors never fill in. If it has a value,
-// this is almost certainly a bot — pretend success without sending anything.
+// Honeypot: a hidden field real visitors never fill in.
 if (!empty($data['website'] ?? '')) {
     echo json_encode(['success' => true]);
     exit;
@@ -66,28 +111,47 @@ if (!empty($errors)) {
     exit;
 }
 
-$emailSubject = "New website enquiry: $subject";
+$fullName = "$firstName $lastName";
+$nl = "\n";
+$htmlEscaped = fn($v) => htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
 
-$body  = "New contact form submission from the website\n\n";
-$body .= "Name: $firstName $lastName\n";
-$body .= "Email: $email\n";
-$body .= "Phone: " . ($phone !== '' ? $phone : 'Not provided') . "\n";
-$body .= "Company: " . ($company !== '' ? $company : 'Not provided') . "\n";
-$body .= "Subject: $subject\n\n";
-$body .= "Message:\n$message\n";
+// --- 1. Admin notification ---
+$adminText = "New contact form submission from the website$nl$nl"
+    . "Name: $fullName$nl"
+    . "Email: $email$nl"
+    . "Phone: " . ($phone !== '' ? $phone : 'Not provided') . "$nl"
+    . "Company: " . ($company !== '' ? $company : 'Not provided') . "$nl"
+    . "Subject: $subject$nl$nl"
+    . "Message:$nl$message$nl";
 
-$host = preg_replace('/[^a-zA-Z0-9.\-]/', '', $_SERVER['HTTP_HOST'] ?? 'dieuxltd.com');
+$adminSent = send_via_resend([
+    'from' => RESEND_FROM,
+    'to' => [CONTACT_ADMIN_EMAIL],
+    'reply_to' => $email,
+    'subject' => "New website enquiry: $subject",
+    'text' => $adminText,
+]);
 
-$headers = [];
-$headers[] = "From: Website Contact Form <no-reply@$host>";
-$headers[] = "Reply-To: $firstName $lastName <$email>";
-$headers[] = "Content-Type: text/plain; charset=UTF-8";
-
-$sent = mail($to, $emailSubject, $body, implode("\r\n", $headers));
-
-if ($sent) {
-    echo json_encode(['success' => true]);
-} else {
+if (!$adminSent) {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Could not send your message right now. Please try again or email us directly.']);
+    exit;
 }
+
+// --- 2. Confirmation to the person who submitted the form ---
+$confirmHtml = '<p>Hi ' . $htmlEscaped($firstName) . ',</p>'
+    . '<p>Thanks for getting in touch with Dieux Accounting &amp; Advisory. '
+    . "We've received your message and a member of our team will get back to you shortly.</p>"
+    . '<p><strong>Your message:</strong><br>' . nl2br($htmlEscaped($message)) . '</p>'
+    . '<p>Best regards,<br>Dieux Accounting &amp; Advisory</p>';
+
+send_via_resend([
+    'from' => RESEND_FROM,
+    'to' => [$email],
+    'subject' => 'We\'ve received your message',
+    'html' => $confirmHtml,
+]);
+// Confirmation email failing isn't fatal to the user's submission — the
+// admin notification above already succeeded, so we still report success.
+
+echo json_encode(['success' => true]);

@@ -15,7 +15,7 @@ export const siteConfig = {
     email: "Info@dieux.co.uk",
     phoneDisplay: "020 3633 9182",
     phoneHref: "+442036339182",
-    addressLine1: "London, United Kingdom",
+    addressLine1: "124 City Road, London, England, EC1V 2NX",
     addressLine2: "UK-wide & international client service",
     country: "United Kingdom",
   },

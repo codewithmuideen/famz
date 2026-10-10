@@ -19,7 +19,8 @@ const ctaDefaults = {
 };
 
 export default function Services() {
-  const { items: services } = useCollection("services", fallbackServices);
+  const { items: allServices } = useCollection("services", fallbackServices);
+  const services = allServices.filter((s) => s.showInGrid !== false);
   const { content: hero } = useSiteContent("services", "hero", heroDefaults);
   const { content: cta } = useSiteContent("services", "cta", ctaDefaults);
 

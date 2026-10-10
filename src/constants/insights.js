@@ -49,7 +49,7 @@ export const insights = [
     category: "Tax Planning",
     date: "2026-08-02",
     author: "Dieux Advisory Team",
-    image: "insight-3",
+    image: "/rd-tax-planning.jpeg",
     featured: true,
     excerpt:
       "R&D tax relief remains one of the most under-claimed reliefs among technology and software businesses. Here's how to assess whether your work qualifies.",
@@ -67,7 +67,7 @@ export const insights = [
     category: "Technology",
     date: "2026-07-14",
     author: "Dieux Advisory Team",
-    image: "insight-4",
+    image: "/technology.jpeg",
     featured: false,
     excerpt:
       "Cloud accounting isn't just about compliance readiness. Done well, it changes how quickly you can make decisions about your business.",
@@ -84,7 +84,7 @@ export const insights = [
     category: "Business Advisory",
     date: "2026-06-09",
     author: "Dieux Advisory Team",
-    image: "insight-5",
+    image: "/business-advisory-cash-flow.jpeg",
     featured: false,
     excerpt:
       "Profitable businesses fail from cash flow problems more often than from a lack of demand. A rolling forecast is the simplest safeguard.",

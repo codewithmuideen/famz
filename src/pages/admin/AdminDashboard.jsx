@@ -226,7 +226,7 @@ const groups = [
           </div>
         ),
       },
-      { key: "services", label: "Services list", render: () => <CollectionManager collectionName="services" schema={servicesSchema} slugField="slug" titleField="title" emptyItem={{ title: "New service", slug: "new-service", offerings: [], relatedServices: [], relatedIndustries: [] }} /> },
+      { key: "services", label: "Services list", render: () => <CollectionManager collectionName="services" schema={servicesSchema} slugField="slug" titleField="title" emptyItem={{ title: "New service", slug: "new-service", showInGrid: true, offerings: [], relatedServices: [], relatedIndustries: [] }} /> },
     ],
   },
   {

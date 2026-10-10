@@ -21,8 +21,15 @@ export default function PrivacyPolicy() {
             <h2 className="mt-4 text-xl text-ink">Information we collect</h2>
             <p className="leading-relaxed text-ink-muted">
               We collect information you provide directly to us, such as when you complete our
-              contact form, together with limited technical data collected via cookies (see our
-              cookie preferences) where you have consented to analytics or marketing cookies.
+              contact form, together with limited technical data collected via cookies (see our{" "}
+              <button
+                type="button"
+                onClick={() => document.dispatchEvent(new CustomEvent("open-cookie-preferences"))}
+                className="underline underline-offset-2 hover:text-brand-navy"
+              >
+                cookie preferences
+              </button>
+              ) where you have consented to analytics or marketing cookies.
             </p>
             <h2 className="mt-4 text-xl text-ink">How we use your information</h2>
             <p className="leading-relaxed text-ink-muted">
